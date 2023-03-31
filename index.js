@@ -75,12 +75,22 @@ const generatorObject = iterateTeams(superHeroTeams);
 // Obteniendo el primer resultado
 let result = generatorObject.next();
 
+// Datos de busqueda
+const superPowerWanted = "immortality"
+let counter = 0;
+
 while (!result.done) {
   const superPower = result.value;
-  if (superPower === 'immortality') {
+  counter++;
+  if (superPower === superPowerWanted) {
+    // Solo se imprime que el super poder ha sido encontrado
+    // pero no a que héroe pertenece
+    // deberia imprimir algo asi
+    // > El super poder de immortality le pertenece a Batman
     console.log('Super Power has been found');
     break;
   } else {
     result = generatorObject.next();
   }
 }
+console.log(`El sistema realizo ${counter} comparaciones en el conjunto de datos`);
