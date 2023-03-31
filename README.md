@@ -9,3 +9,4 @@ El código utiliza una serie de funciones generadoras para iterar sobre los equi
 ## Reto
 Tu misión es modificar el código para lograr lo que falta, para ello deberas realizar un fork de este repositorio en tu cuenta de Github y realizar
 las modificaciones.
+⚠️ La idea no es remover las funciones iteradores, solo modificarlas para lograr el objetivo.
