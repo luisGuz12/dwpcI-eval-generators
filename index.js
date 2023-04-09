@@ -58,7 +58,9 @@ function* iteratePowers(superPowers) {
 function* iterateSuperHeores(superHeores) {
   for (let i = 0; i < superHeores.length; i++) {
     const superHeore = superHeores[i];
-    yield* iteratePowers(superHeore.superPowers);
+    for (const superPower of iteratePowers(superHeore.superPowers)) {
+      yield {superPower, superHeore};
+    }
   }
 }
 
@@ -80,14 +82,15 @@ const superPowerWanted = "immortality"
 let counter = 0;
 
 while (!result.done) {
-  const superPower = result.value;
+  const {superPower, superHeore} = result.value;
   counter++;
   if (superPower === superPowerWanted) {
     // Solo se imprime que el super poder ha sido encontrado
     // pero no a que héroe pertenece
     // deberia imprimir algo asi
     // > El super poder de immortality le pertenece a Batman
-    console.log('Super Power has been found');
+    console.log(`El super poder de ${superPowerWanted} le pertenece a ${superHeore.name}`);
+   
     break;
   } else {
     result = generatorObject.next();
